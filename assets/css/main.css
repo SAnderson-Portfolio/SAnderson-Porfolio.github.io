@@ -157,7 +157,7 @@ input, select, textarea {
 
 	strong, b {
 		font-weight: 300;
-		color: #666;
+		color: inherit;
 	}
 
 	em, i {
