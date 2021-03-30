@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Steven Anderson / Programmer</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="is-preload">
+
+    <!-- Header -->
+    <div id="header">
+
+        <div class="top">
+
+            <!-- Logo -->
+            <div id="logo">
+                <h1 id="title">Steven Anderson</h1>
+                <p>Game Programmer</p>
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html" id="top-link">Home</a></li>
+                    <li><a href="#Description" id="top-link">Description</a></li>
+                    <li><a href="#Source" id="top-link">Source Code</a></li>
+                    <li><a href="#OtherProjects" id="portfolio-link">Other Projects</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <div class="bottom">
+
+            <!-- Social Icons -->
+            <ul class="icons">
+                <li><a href="https://twitter.com/SAAnderson94" target="_blank" rel="noopener noreferrer" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="https://www.linkedin.com/in/stevenanderson94/" target="_blank" rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/SAnderson-Portfolio" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                <li><a href="mailto: stevenanderson994@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- Main -->
+    <div id="main">
+
+        <!-- Description -->
+        <section id="Description" class="one dark cover">
+            <div class="container">
+
+                <header>
+                    <h2 class="alt"><strong>Dungeon Generator</strong></h2>
+                </header>
+                <p>Development Snapshot</p>
+                <p>
+                    <b>Engine</b>: Unreal Engine 4<br />
+                    <b>Language</b>: C++<br />
+                    <b>Algorithm</b>: Random walk<br />
+
+                </p>
+            </div>
+        </section>
+
+        <!-- Source -->
+        <section id="Source" class="two">
+            <div class="container">
+                <h2 class="alt"><strong>Relevant Varaible Declarations</strong></h2>
+                    <pre style="text-align:left;">
+                        <code>
+                        //Direction enumerator
+                        UENUM()
+                        enum Direction
+                        {
+                            Up UMETA(DisplayName = "Up"),
+                            Down UMETA(DisplayName = "Down"),
+                            Left UMETA(DisplayName = "Left"),
+                            Right UMETA(DisplayName = "Right"),
+                            None UMETA(DisplayName = "None")
+                        };
+
+                        //Level array
+                        UPROPERTY()
+                            TArray<uint8> LevelMap;
+
+                        // The maximum width of the dungeon.
+                        UPROPERTY(EditDefaultsOnly, Category = "Rooms")
+                            uint8 DungeonWidth = 5;
+                        // The maximum height of the dungeon.
+                        UPROPERTY(EditDefaultsOnly, Category = "Rooms")
+                            uint8 DungeonHeight = 5;
+                        // The maximum number of tunnels that can be created.
+                        UPROPERTY(EditDefaultsOnly, Category = "Rooms")
+                            uint8 MaxTunnels = 5;
+                        // The maximum length any given tunnel can be.
+                        UPROPERTY(EditDefaultsOnly, Category = "Rooms")
+                            uint8 MaxTunnelLength = 5;
+                        </code>
+                    </pre>
+                <h2 class="alt"><strong>Map Generation Function</strong></h2>
+                <pre style="text-align:left;">
+                    <code>
+                        void GenerateMap(uint8& StartCol, uint8& StartRow)
+                        {
+
+                            uint8 CurrentRow = FMath::RandRange(0, DungeonWidth - 1);//The start row.
+                            uint8 CurrentColumn = FMath::RandRange(0, DungeonHeight - 1);//The start column.
+                            bool StartSet = false;//Used to set the start position of the map.
+                            int8 CurrentDirectionRow = 0;//Direction to go in rows.
+                            int8 CurrentDirectionCol = 0;//Direction to go in columns.
+                            Direction CurrentDirectionEnum = Direction::None;//Current direction the tunnel is going.
+                            Direction LastDirectionEnum = Direction::None;//The last direction a tunnel went in, stops tunnel turning back on itself.
+                            uint8 NumberTunnels = 0;//How many tunnels have been created.
+
+                            //While the number of tunnels created is not at the maximum yet.
+                            while (NumberTunnels < MaxTunnels)
+                            {
+                                do
+                                {//Select a random direction that is not the same as the previous one.
+                                    switch (FMath::RandRange(0, 3))
+                                    {
+                                    case 0://Up
+                                        if (LastDirectionEnum != Direction::Up && LastDirectionEnum != Direction::Down)
+                                        {
+                                            CurrentDirectionRow = -1;
+                                            CurrentDirectionCol = 0;
+                                            CurrentDirectionEnum = Direction::Up;
+                                        }
+                                        break;
+                                    case 1://Down
+                                        if (LastDirectionEnum != Direction::Down && LastDirectionEnum != Direction::Up)
+                                        {
+                                            CurrentDirectionRow = 1;
+                                            CurrentDirectionCol = 0;
+                                            CurrentDirectionEnum = Direction::Down;
+                                        }
+                                        break;
+                                    case 2://Left
+                                        if (LastDirectionEnum != Direction::Left && LastDirectionEnum != Direction::Right)
+                                        {
+                                            CurrentDirectionRow = 0;
+                                            CurrentDirectionCol = 1;
+                                            CurrentDirectionEnum = Direction::Left;
+                                        }
+                                    break;
+                                    case 3://Right
+                                        if (LastDirectionEnum != Direction::Right && LastDirectionEnum != Direction::Left)
+                                        {
+                                            CurrentDirectionRow = 0;
+                                            CurrentDirectionCol = -1;
+                                            CurrentDirectionEnum = Direction::Right;
+                                        }
+                                        break;
+                                    default:
+                                        UE_LOG(LogTemp, Warning, TEXT("Default reached in random direction"));
+                                    }
+                                } while (CurrentDirectionEnum == LastDirectionEnum);
+                                
+                                //Pick a random number between 0 and the maximum tunnel range to make the length of the next tunnel.
+                                uint8 RandomLength = FMath::RandRange(0, MaxTunnelLength);
+                                uint8 TunnelLength = 0;
+
+                                //While the length of the tunnel is less than the random length picked above.
+                                while (TunnelLength < RandomLength)
+                                {
+                                    if (((CurrentRow == 0) && (CurrentDirectionRow == -1)) ||
+                                    ((CurrentColumn == 0) && (CurrentDirectionCol == -1)) ||
+                                    ((CurrentRow == DungeonHeight - 1) && (CurrentDirectionRow == 1)) ||
+                                    ((CurrentColumn == DungeonWidth - 1) && (CurrentDirectionCol == 1)))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        LevelMap[(DungeonHeight * CurrentRow) + CurrentColumn] = 0;
+                                        CurrentRow += CurrentDirectionRow;
+                                        CurrentColumn += CurrentDirectionCol;
+                                        TunnelLength++;
+                                    }
+                                }
+                                //If a tunnel has been created then increase then umber of tunnels and update the previous direction.
+                                if (TunnelLength > 0)
+                                {
+                                    LastDirectionEnum = CurrentDirectionEnum;
+                                    NumberTunnels++;
+                                    if (!StartSet)//If the start position has not been set then set it. 
+                                    {
+                                        StartCol = CurrentColumn;
+                                        StartRow = CurrentRow;
+                                        StartSet = true;
+                                    }
+                                }
+                            }
+
+                        }
+                    </code>
+                </pre>
+            </div>
+        </section>
+
+        <!-- Other Projects -->
+        <section id="OtherProjects" class="two">
+            <div class="container">
+
+                <header>
+                    <h2>Portfolio</h2>
+                </header>
+
+                <p>
+                    Vitae natoque dictum etiam semper magnis enim feugiat convallis convallis
+                    egestas rhoncus ridiculus in quis risus amet curabitur tempor orci penatibus.
+                    Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis
+                    fusce hendrerit lacus ridiculus.
+                </p>
+
+                <div class="row">
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <a href="#" class="image fit"><img src="images/Maps.gif" alt="" /></a>
+                            <header>
+                                <h3>Dungeon Generator</h3>
+                            </header>
+                        </article>
+                        <article class="item">
+                            <a href="#" class="image fit"><img src="images/enemySheet.gif" alt="" /></a>
+                            <header>
+                                <h3>Space Invasion</h3>
+                            </header>
+                        </article>
+                    </div>
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
+                            <header>
+                                <h3>Magna Nullam</h3>
+                            </header>
+                        </article>
+                        <article class="item">
+                            <a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
+                            <header>
+                                <h3>Natoque Vitae</h3>
+                            </header>
+                        </article>
+                    </div>
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
+                            <header>
+                                <h3>Dolor Penatibus</h3>
+                            </header>
+                        </article>
+                        <article class="item">
+                            <a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+                            <header>
+                                <h3>Orci Convallis</h3>
+                            </header>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+
+        <!-- Copyright -->
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved.</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
