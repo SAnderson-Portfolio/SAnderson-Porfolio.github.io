@@ -2270,6 +2270,19 @@ input, select, textarea {
 				background-color: #e8edec;
 			}
 
+			#main > section.dungeon {
+				background-color: inherit;
+				background-size: cover;
+				background-image: url("../../images/DungeonBackground.jpg");
+			}
+
+			#main > section.lochsite {
+				color: #fff;
+				background-color: inherit;
+				background-size: cover;
+				background-image: url("../../images/LochsiteBackground.jpg");
+			}
+
 /* Wide */
 
 	@media screen and (min-width: 961px) and (max-width: 1880px) {
