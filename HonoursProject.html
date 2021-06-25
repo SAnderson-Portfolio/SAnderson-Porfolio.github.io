@@ -87,13 +87,13 @@
                     With the deadline quickly approaching, I opted to switch over to using Tensorflow and implementing a Convolutional Neural Network.
                     Below is a diagram I created of the network architecture.
                 </p>
-                <img src="Images/NetworkArchitecture.png" alt="Architecture of CNN" align="middle" style="width:90%;height:100%">
+                <img src="images/NetworkArchitecture.png" alt="Architecture of CNN" align="middle" style="width:90%;height:100%">
                 <p>
                     <h2>Network Input</h2> 
                     I used OpenCV as the API for capturing the input used for the network. The first 60 frames of the program running are used to accumulate average pixels values of the user's background, this allows for background seperation to be used.
                      Below is the five stages an image is processed before being used for input to the network.
                     <br/>
-                    <img src="Images/InputProcess.jpg" alt="Input Process Steps" align="middle"style="width:90%;height:100%">
+                    <img src="images/InputProcess.jpg" alt="Input Process Steps" align="middle"style="width:90%;height:100%">
                     <br/>
                     A frame is captured in BGR every 25ms, this frame is first converted to greyscale then blurred with a gaussian blur kernel to remove hard edges. The next step is to seperate the user's hand from the frame, 
                     this is done by comparing the current frame to the accumulated background average. The final step is to change any pixel above a certain value to white and any below to black, this provides a clear monochrome image of the user's hand.
