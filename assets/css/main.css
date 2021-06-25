@@ -89,7 +89,7 @@ input, select, textarea {
 		font-size: 19pt;
 		font-weight: 300;
 		line-height: 1.75em;
-		color: #888;
+		color: #000;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -103,13 +103,13 @@ input, select, textarea {
 			transition: none !important;
 		}
 
-	input, textarea, select {
-		font-family: 'Source Sans Pro', sans-serif;
-		font-size: 19pt;
-		font-weight: 300;
-		line-height: 1.75em;
-		color: #888;
-	}
+input, textarea, select {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 19pt;
+	font-weight: 300;
+	line-height: 1.75em;
+	color: #000;
+}
 
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: 300;
@@ -1815,6 +1815,7 @@ input, select, textarea {
 		padding-left: 1em;
 	}
 
+
 		ul li {
 			padding-left: 0.5em;
 		}
@@ -2298,6 +2299,14 @@ input, select, textarea {
 				background-color: #fff;
 				background-size: cover;
 				background-image: url("../../images/SpaceInvasion.jpg");
+			}
+
+			#main > section.HonoursProject {
+				color: #fff;
+				overflow: visible;
+				background-color: #fff;
+				background-size: cover;
+				background-image: url("../../images/HonoursBackground.jpg");
 			}
 
 /* Wide */

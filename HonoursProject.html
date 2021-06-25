@@ -1,0 +1,198 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Honours Project</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="is-preload">
+
+    <!-- Header -->
+    <div id="header">
+
+        <div class="top">
+
+            <!-- Logo -->
+            <div id="logo">
+                <h1 id="title">Steven Anderson</h1>
+                <p>Game Programmer</p>
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html" id="home">Home</a></li>
+                    <li><a href="#Description" id="description">Description</a></li>
+                    <li><a href="#Process" id="source-code">Process</a></li>
+                    <li><a href="#OtherProjects" id="portfolio-link">Other Projects</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <div class="bottom">
+
+            <!-- Social Icons -->
+            <ul class="icons">
+                <li><a href="https://twitter.com/SAAnderson94" target="_blank" rel="noopener noreferrer" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="https://www.linkedin.com/in/stevenanderson94/" target="_blank" rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/SAnderson-Portfolio" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                <li><a href="mailto: stevenanderson994@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- Main -->
+    <div id="main">
+
+        <!-- Description -->
+        <section id="Description" class="HonoursProject">
+            <div class="container">
+
+                <header>
+                    <h2 class="alt"><strong>Honours Project</strong></h2>
+                </header>
+                <p style="text-align:left;">
+                    Research Question: How effective can gesture recognition be at aiding accessibility to video games?
+                    <br />
+                    <ul align="left">
+                        Objectives:
+                        <li>To research suitable methods withing machine learning to recognise hand gestures.</li>
+                        <li>To evaluate how effective gesture control can be for accessibility in games.</li>
+                        <li>To build a system that allows control of video games through gesture recognition.</li>
+                    </ul>
+                </p>
+                <p style="text-align:right;font-size:14px">
+                    Photo by <a href="https://unsplash.com/@enginakyurt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">engin akyurt</a> on <a href="https://unsplash.com/s/photos/thumbs-up?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Source -->
+        <section id="Process" class="two">
+            <div class="container">
+                <p>
+                To better understand how an Artificial Neural Network functions, the first 3-4 months of my honours project were dedicated to creating one from scratch in C++.
+                I created a network that was capable of learning how to identify handwritten numbers from the MNIST database however, when attempting to train on the dataset I created
+                for use in this project, I could not find the hyperparameters for the network to bite on training. This resulted in a network that would descend towards the global minimum but really slowly.
+                </p>
+                <p>
+                    With the deadline quickly approaching, I opted to switch over to using Tensorflow and implementing a Convolutional Neural Network.
+                    Below is a diagram I created of the network architecture.
+                </p>
+                <img src="Images/NetworkArchitecture.png" alt="Architecture of CNN" align="middle" style="width:90%;height:100%">
+                <p>
+                    <h2>Network Input</h2> 
+                    I used OpenCV as the API for capturing the input used for the network. The first 60 frames of the program running are used to accumulate average pixels values of the user's background, this allows for background seperation to be used.
+                     Below is the five stages an image is processed before being used for input to the network.
+                    <br/>
+                    <img src="Images/InputProcess.jpg" alt="Input Process Steps" align="middle"style="width:90%;height:100%">
+                    <br/>
+                    A frame is captured in BGR every 25ms, this frame is first converted to greyscale then blurred with a gaussian blur kernel to remove hard edges. The next step is to seperate the user's hand from the frame, 
+                    this is done by comparing the current frame to the accumulated background average. The final step is to change any pixel above a certain value to white and any below to black, this provides a clear monochrome image of the user's hand.
+                </p>
+                <p>
+                    <h2>Network Output</h2>
+                    Using a Python library called Pynut, the model's predicition is passed to a dictionary which returns the key to be pressed. 
+                    The key press event is sent to windows whenever the prediction has changed or whenever the user removes or inserts their hand in to the region of interest.
+                </p>
+            </div>
+        </section>
+
+        <!-- Other Projects -->
+        <section id="OtherPojects" class="two">
+            <div class="container">
+
+                <header>
+                    <h2>Other Projects</h2>
+                </header>
+
+                <p>
+                    Quick access section to my other projects.
+                </p>
+
+                <div class="row">
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <a href="dungeon.html" class="image fit"><img src="images/Maps.gif" alt="Gif of different maps" /></a>
+                            <header>
+                                <h3>Dungeon Generator</h3>
+                            </header>
+                        </article>
+                        <article class="item">
+                            <a href="SpaceInvasion.html" class="image fit"><img src="images/enemySheet.gif" alt="Enemy animation" /></a>
+                            <header>
+                                <h3>Space Invasion</h3>
+                            </header>
+                        </article>
+                    </div>
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <a href="AudioProject.html" class="image fit"><img src="images/AudioProject.gif" alt="Audio project intro" /></a>
+                            <header>
+                                <h3>Audio Project</h3>
+                            </header>
+                        </article>
+                        <article class="item">
+                            <a href="Lochsite.html" class="image fit"><img src="images/Lochsite.gif" alt="Roots being cut in game" /></a>
+                            <header>
+                                <h3>Lochsite</h3>
+                            </header>
+                        </article>
+
+                        <article class="item">
+                            <a href="Grapple.html" class="image fit"><img src="images/Grapple.gif" alt="Grappling to grapple point." /></a>
+                            <header>
+                                <h3>Grapple</h3>
+                            </header>
+                        </article>
+                    </div>
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <a href="AStar.html" class="image fit"><img src="images/AStar.gif" alt="AStar making a path." /></a>
+                            <header>
+                                <h3>A*</h3>
+                            </header>
+                        </article>
+                        <article class="item">
+                            <a href="AICar.html" class="image fit"><img src="images/AICar.gif" alt="Car turning a corner" /></a>
+                            <header>
+                                <h3>AI Car</h3>
+                            </header>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+
+        <!-- Copyright -->
+        <ul class="copyright">
+            <li>&copy; 2021 Steven Anderson. All rights reserved.</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
