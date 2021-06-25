@@ -81,7 +81,7 @@
                 <p>
                 To better understand how an Artificial Neural Network functions, the first 3-4 months of my honours project were dedicated to creating one from scratch in C++.
                 I created a network that was capable of learning how to identify handwritten numbers from the MNIST database however, when attempting to train on the dataset I created
-                for use in this project, I could not find the hyperparameters for the network to bite on training. This resulted in a network that would descend towards the global minimum but really slowly.
+                for use in this project, I could not find the hyperparameters for the network to bite on training. This resulted in a network that would descend towards the global minimum but slowly.
                 </p>
                 <p>
                     With the deadline quickly approaching, I opted to switch over to using Tensorflow and implementing a Convolutional Neural Network.
@@ -101,7 +101,9 @@
                 <p>
                     <h2>Network Output</h2>
                     Using a Python library called Pynut, the model's predicition is passed to a dictionary which returns the key to be pressed. 
-                    The key press event is sent to windows whenever the prediction has changed or whenever the user removes or inserts their hand in to the region of interest.
+                    The key press event is sent to windows whenever the prediction has changed or whenever the user removes or inserts their hand in to the region of interest. 
+                    Each prediction is paired with a key to press, these keys can be changed to allow any combination of virtual keys to be used and even sentences. 
+                    When the user removes or inserts their hand in to the frame then a virtual key is sent that allows for the entering and exiting of cover in the game.
                 </p>
             </div>
         </section>
