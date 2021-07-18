@@ -28,6 +28,7 @@
                 <ul>
                     <li><a href="index.html" id="home">Home</a></li>
                     <li><a href="#Description" id="description">Description</a></li>
+                    <li><a href="#ExtraInfo" id="extra-info">Extra Information</a></li>
                     <li><a href="#Source" id="source-code">Source Code</a></li>
                     <li><a href="#OtherProjects" id="portfolio-link">Other Projects</a></li>
                 </ul>
@@ -76,7 +77,21 @@
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/ESlkQ-C9n3A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
-
+        <!-- Extra Info-->
+        <section id="ExtraInfo" class="two">
+            <div class="container">
+                <h2>Audio</h2>
+                Almost all of the audio in the project was created by myself, the only exception to this is the collection of sounds used to create the background music which I mixed together in Wwise
+                and control through RTPCs to create dynamic game music.
+                <h2>Plugins</h2>
+                I created three Wwise plugins, each with a different task; Attenuation, Delay, and a Sine Generator. The attenuation plugin was created to work in tandem with the radius of the areas being painted,
+                the smaller the radius, the quieter the sound should be. The delay plugin was created to add variety to most sounds in the game and mimic reverb in others. 
+                Finally, the Sine generator was used for music synthesis that the radios in the first level use in combination with the delay.
+                <h2>"Paint"</h2>
+                The paint effect is achieved using shaders, each sound has a location and an active radius then at the pixel-shader stage any pixels not within the radius of these locations is discarded.
+                
+            </div>
+        </section>
         <!-- Source -->
         <section id="Source" class="two">
             <div class="container">
@@ -88,7 +103,7 @@
         </section>
 
         <!-- Other Projects -->
-        <section id="OtherPojects" class="two">
+        <section id="OtherProjects" class="two">
             <div class="container">
 
                 <header>
