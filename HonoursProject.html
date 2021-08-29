@@ -79,9 +79,9 @@
         <section id="Process" class="two">
             <div class="container">
                 <p>
-                To better understand how an Artificial Neural Network functions, the first 3-4 months of my honours project were dedicated to creating one from scratch in C++.
-                I created a network that was capable of learning how to identify handwritten numbers from the MNIST database however, when attempting to train on the dataset I created
-                for use in this project, I could not find the hyperparameters for the network to bite on training. This resulted in a network that would descend towards the global minimum but slowly.
+                    To better understand how an Artificial Neural Network functions, the first 3-4 months of my honours project were dedicated to creating one from scratch in C++.
+                    I created a network that was capable of learning how to identify handwritten numbers from the MNIST database however, when attempting to train on the dataset I created
+                    for use in this project, I could not find the hyperparameters for the network to bite on training. This resulted in a network that would descend towards the global minimum but slowly.
                 </p>
                 <p>
                     With the deadline quickly approaching, I opted to switch over to using Tensorflow and implementing a Convolutional Neural Network.
@@ -89,59 +89,35 @@
                 </p>
                 <img src="images/NetworkArchitecture.png" alt="Architecture of CNN" align="middle" style="width:90%;height:100%">
                 <p>
-                    <h2>Network Input</h2> 
+                    <h2>Network Input</h2>
                     I used OpenCV as the API for capturing the input used for the network. The first 60 frames of the program running are used to accumulate average pixels values of the user's background, this allows for background seperation to be used.
-                     Below is the five stages an image is processed before being used for input to the network.
-                    <br/>
-                    <img src="images/InputProcess.jpg" alt="Input Process Steps" align="middle"style="width:90%;height:100%">
-                    <br/>
-                    A frame is captured in BGR every 25ms, this frame is first converted to greyscale then blurred with a gaussian blur kernel to remove hard edges. The next step is to seperate the user's hand from the frame, 
+                    Below is the five stages an image is processed before being used for input to the network.
+                    <br />
+                    <img src="images/InputProcess.jpg" alt="Input Process Steps" align="middle" style="width:90%;height:100%">
+                    <br />
+                    A frame is captured in BGR every 25ms, this frame is first converted to greyscale then blurred with a gaussian blur kernel to remove hard edges. The next step is to seperate the user's hand from the frame,
                     this is done by comparing the current frame to the accumulated background average. The final step is to change any pixel above a certain value to white and any below to black, this provides a clear monochrome image of the user's hand.
                 </p>
                 <p>
                     <h2>Network Output</h2>
-                    Using a Python library called Pynut, the model's predicition is passed to a dictionary which returns the key to be pressed. 
-                    The key press event is sent to windows whenever the prediction has changed or whenever the user removes or inserts their hand in to the region of interest. 
-                    Each prediction is paired with a key to press, these keys can be changed to allow any combination of virtual keys to be used and even sentences. 
+                    Using a Python library called Pynut, the model's predicition is passed to a dictionary which returns the key to be pressed.
+                    The key press event is sent to windows whenever the prediction has changed or whenever the user removes or inserts their hand in to the region of interest.
+                    Each prediction is paired with a key to press, these keys can be changed to allow any combination of virtual keys to be used and even sentences.
                     When the user removes or inserts their hand in to the frame then a virtual key is sent that allows for the entering and exiting of cover in the game.
                 </p>
             </div>
         </section>
 
         <!-- Other Projects -->
-        <section id="OtherProjects" class="two">
+        <section id="Other Projects" class="two">
             <div class="container">
 
                 <header>
                     <h2>Other Projects</h2>
                 </header>
 
-                <p>
-                    Quick access section to my other projects.
-                </p>
-
                 <div class="row">
                     <div class="col-4 col-12-mobile">
-                        <article class="item">
-                            <a href="dungeon.html" class="image fit"><img src="images/Maps.gif" alt="Gif of different maps" /></a>
-                            <header>
-                                <h3>Dungeon Generator</h3>
-                            </header>
-                        </article>
-                        <article class="item">
-                            <a href="SpaceInvasion.html" class="image fit"><img src="images/enemySheet.gif" alt="Enemy animation" /></a>
-                            <header>
-                                <h3>Space Invasion</h3>
-                            </header>
-                        </article>
-                    </div>
-                    <div class="col-4 col-12-mobile">
-                        <article class="item">
-                            <a href="AudioProject.html" class="image fit"><img src="images/AudioProject.gif" alt="Audio project intro" /></a>
-                            <header>
-                                <h3>Audio Project</h3>
-                            </header>
-                        </article>
                         <article class="item">
                             <a href="Lochsite.html" class="image fit"><img src="images/Lochsite.gif" alt="Roots being cut in game" /></a>
                             <header>
@@ -150,23 +126,34 @@
                         </article>
 
                         <article class="item">
-                            <a href="Grapple.html" class="image fit"><img src="images/Grapple.gif" alt="Grappling to grapple point." /></a>
+                            <a href="ToolsProgramming.html" class="image fit"><img src="images/ToolsProject.gif" alt="Terrain being flattened." /></a>
                             <header>
-                                <h3>Grapple</h3>
+                                <h3>WFFC</h3>
                             </header>
                         </article>
+
                     </div>
                     <div class="col-4 col-12-mobile">
                         <article class="item">
-                            <a href="AStar.html" class="image fit"><img src="images/AStar.gif" alt="AStar making a path." /></a>
+                            <a href="AudioProject.html" class="image fit"><img src="images/AudioProject.gif" alt="Audio project intro" /></a>
                             <header>
-                                <h3>A*</h3>
+                                <h3>Audio Project</h3>
                             </header>
                         </article>
+
                         <article class="item">
-                            <a href="AICar.html" class="image fit"><img src="images/AICar.gif" alt="Car turning a corner" /></a>
+                            <a href="VitaProject.html" class="image fit"><img src="images/VitaMenu.png" alt="Win screen of AR Vita game." /></a>
                             <header>
-                                <h3>AI Car</h3>
+                                <h3>AR Tower Defense</h3>
+                            </header>
+                        </article>
+
+                    </div>
+                    <div class="col-4 col-12-mobile">
+                        <article class="item">
+                            <a href="Grapple.html" class="image fit"><img src="images/Grapple.gif" alt="Grappling to grapple point." /></a>
+                            <header>
+                                <h3>Grapple</h3>
                             </header>
                         </article>
                     </div>

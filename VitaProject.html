@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
-    <title>AI Car</title>
+    <title>AR Tower Defense</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
@@ -28,6 +28,7 @@
                 <ul>
                     <li><a href="index.html" id="home">Home</a></li>
                     <li><a href="#Description" id="description">Description</a></li>
+                    <li><a href="#ExtraInfo" id="extra-info">Extra Information</a></li>
                     <li><a href="#Source" id="source-code">Source Code</a></li>
                     <li><a href="#OtherProjects" id="portfolio-link">Other Projects</a></li>
                 </ul>
@@ -57,22 +58,57 @@
             <div class="container">
 
                 <header>
-                    <h2 class="alt"><strong>AI Car</strong></h2>
+                    <h2 class="alt"><strong>AR Tower Defense</strong></h2>
                 </header>
                 <p>
                     Development Snapshot<br />
-                    <b>Engine</b>: Unity<br />
-                    <b>Language</b>: C#<br />
-                    <b>Techniques</b>: Rule Based System vs Fuzzy Logic<br />
-                    For the first half of my Artificial Intelligence module, we were tasked with comparing two AI techniques performing the same task. I went with Rule Based Systems and a Fuzzy Inference System,
-                    to see which system could perform best with a self driving vehicle to complete laps of a track.
+                    <b>Software</b>: <br />
+                    <b>Language</b>: C++<br />
+
                 </p>
                 <p style="text-align:left;">
-
-                    <br />
-                    Below is a video that was created for the project submission.
+                    Tasked with creating an augmented reality (AR) marker based game for the PlayStation Vita, I believe I managed produced my best work to date. <br />
+                    Having to create everything except the animation code from scratch in a 3D environment presented a welcome challenge to my skills.
+                    I have previously made several 2D games from scratch in Java and C++ using the likes of the Java swing library or SFML, even a 2.5D game previously on PS Vita but never a 3D game.
+                    <br />The closest before was a 3D environment in OpenGL but that was simply a graphics project with little gameplay aspects to it except a drivable boat.<br />
                 </p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/WxdphG1St3A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <a class="image alt" style="align-content:center"><img src="images/OpenGL.gif" alt="Gif of OpenGL Scene." /></a>
+
+                <p style="text-align:left;">
+                    This project allowed me to combine everything I had learned up to this point in to one.
+                    I do not own a PS Vita and due to a certain global pandemic, I was unable to record a video for this project. The only representation I have are the win and loss sceen graphics. The enemies in game spawn in a random direction from the main marker instead of single route shown in these.
+                </p>
+                <div class="row two">
+                    <div class="col-4">
+                        <img src="images/Robo_Win_Screen.png" alt="Win Screen" style="width:100%">
+                    </div>
+                    <div class="col-4">
+                        <img src="images/Robo_Loss_Screen.png" alt="Loss Screen" style="width:100%">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Extra Info-->
+        <section id="ExtraInfo" class="two">
+            <div class="container">
+                <h2>Gameplay</h2>
+                <p style="text-align:left;">
+                    Marker one represented the player's base that the enemy waves would move towards. This marker is used as the world centre which other game objects base their local transforms off.
+                    When marker one is not detected the game is essentially paused, no logic is happening and a messaging requesting the marker to be presented is displayed.
+                </p>
+                <p style="text-align:left;">
+                    Any other markers that are detected have a green transparent version of the respective tower model shown to represent a purchase location.
+                    If the player purchases a tower, it will be placed at the purchase location shown by the marker and become a child object to marker one. <br />
+                    The player earns gold by defeating enemies which can be used to purchase the towers.
+
+                </p>
+
+
+                <h2>Markers</h2>
+                <p style="text-align:left;">Marker one is the main marker, this represents the player's base and acts as the world centre. Each other marker represented a different tower type.</p>
+                <a class="image fit"><img src="images/MarkerTowers.png" alt="Markers and their towers" /></a>
             </div>
         </section>
 
@@ -80,38 +116,46 @@
         <section id="Source" class="two">
             <div class="container">
                 <h2 class="alt"><strong>Source</strong></h2>
-                The source code can be viewed at my GitHub portfolio page
-                (<a href="https://github.com/SAnderson-Portfolio/AICar-Source/blob/main/CarEngine.cs" target="_blank" rel="noopener noreferrer">SAnderon-Portfolio</a>
-                <a href="https://github.com/SAnderson-Portfolio/AICar-Source/blob/main/CarEngine.cs" class="fas fa-external-link-alt" style="font-size:16px"></a>).
+                <p style="text-align:left;">
+                    Unfortunately, due to the nature of console development licensing I am hesitant about posting any of the source code to this project in fear of the wrath of Sony lawyers for accidentally sharing something.
+
+                </p>
+                <br />
+                <p style="text-align:left;">
+                    Instead of the source code, here is a class diagram and gameplay flowchart that I created during the design stage; hopefully these give some idea of how the project worked. The class diagram is missing things that were added later in development but still represents the core functionality.
+
+                </p>
+                <h3>Class Diagram</h3>
+                <a class="image fit"><img src="images/ClassDiagramVita.png" alt="Class diagram for AR Vita" /></a>
+                <h3>Flowchart</h3>
+                <a class="image fit"><img src="images/FlowchartVita.png" alt="Gameplay Flowchart" /></a>
             </div>
         </section>
 
         <!-- Other Projects -->
-        <section id="OtherProjects" class="two">
+        <section id="Other Projects" class="two">
             <div class="container">
 
                 <header>
                     <h2>Other Projects</h2>
                 </header>
 
-                <p>
-                    Quick access section to my other projects.
-                </p>
-
                 <div class="row">
                     <div class="col-4 col-12-mobile">
                         <article class="item">
-                            <a href="dungeon.html" class="image fit"><img src="images/Maps.gif" alt="Gif of different maps" /></a>
+                            <a href="Lochsite.html" class="image fit"><img src="images/Lochsite.gif" alt="Roots being cut in game" /></a>
                             <header>
-                                <h3>Dungeon Generator</h3>
+                                <h3>Lochsite</h3>
                             </header>
                         </article>
+
                         <article class="item">
-                            <a href="SpaceInvasion.html" class="image fit"><img src="images/enemySheet.gif" alt="Enemy animation" /></a>
+                            <a href="ToolsProgramming.html" class="image fit"><img src="images/ToolsProject.gif" alt="Terrain being flattened." /></a>
                             <header>
-                                <h3>Space Invasion</h3>
+                                <h3>WFFC</h3>
                             </header>
                         </article>
+
                     </div>
                     <div class="col-4 col-12-mobile">
                         <article class="item">
@@ -120,21 +164,9 @@
                                 <h3>Audio Project</h3>
                             </header>
                         </article>
-                        <article class="item">
-                            <a href="Lochsite.html" class="image fit"><img src="images/Lochsite.gif" alt="Roots being cut in game" /></a>
-                            <header>
-                                <h3>Lochsite</h3>
-                            </header>
-                        </article>
 
                     </div>
                     <div class="col-4 col-12-mobile">
-                        <article class="item">
-                            <a href="AStar.html" class="image fit"><img src="images/AStar.gif" alt="AStar making a path." /></a>
-                            <header>
-                                <h3>A*</h3>
-                            </header>
-                        </article>
                         <article class="item">
                             <a href="Grapple.html" class="image fit"><img src="images/Grapple.gif" alt="Grappling to grapple point." /></a>
                             <header>

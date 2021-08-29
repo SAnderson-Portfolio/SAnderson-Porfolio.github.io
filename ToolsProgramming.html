@@ -1,14 +1,14 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
-    <title>Space Invasion</title>
+    <title>WFFC</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body class="is-preload">
 
@@ -28,6 +28,7 @@
                 <ul>
                     <li><a href="index.html" id="home">Home</a></li>
                     <li><a href="#Description" id="description">Description</a></li>
+                    <li><a href="#ExtraInfo" id="extra-info">Extra Information</a></li>
                     <li><a href="#Source" id="source-code">Source Code</a></li>
                     <li><a href="#OtherProjects" id="portfolio-link">Other Projects</a></li>
                 </ul>
@@ -53,67 +54,80 @@
     <div id="main">
 
         <!-- Description -->
-        <section id="Description" class="SpaceInvasion">
+        <section id="Description" class="one dark cover">
             <div class="container">
 
                 <header>
-                    <h2 class="altTwo"><strong>Space Invasion</strong></h2>
+                    <h2 class="alt"><strong>World of Flim-Flam Craft</strong></h2>
                 </header>
-                <p class="outline">
+                <p>
                     Development Snapshot<br />
+                    <b>Software</b>: DirectX, MFC<br />
                     <b>Language</b>: C++<br />
-                    <b>Software</b>: SFML<br />
 
                 </p>
-                <p class ="outline" style="text-align:left;
-                   color: white;">
-                    For my first year module, Games Programming, we were tasked with creating a 2D game application using Simple and Fast Multimedia Library (SFML). This was my first time programming in C++ and I have learnt a lot since this project was created but,
-                    I enjoyed the creation process and the final result so I have decided to include it as a portfolio piece. "Space Invasion" is a top down shooter inspired by some of the classics.
+                <p style="text-align:left;">
+                    World of Flim-Flam Craft (WFFC) is a project framework that was capable of loading from a database and rendering objects. The task set by my tools programming module was to extend this boilerplate framework to create a set of tools that would aid in the production pipeline of WFFC.
+                    I focused on three main aspects for the project, object manipulation, terrain manipulation, and camera functionality.
+
                     <br />
-                    Below is a playthrough video of the game.
+                    Below is a video showcasing the tools I created.
                 </p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/VAso_b08Mvo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/iCPUDzLAjQk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Extra Info-->
+        <section id="ExtraInfo" class="two">
+            <div class="container">
+                <h2>Cameras</h2>
+                I implemented three camera modes, focused, free, and rotating. Focused camera allows an object to be selected and orbitted around,
+                free move camera allows the user to move around the scene freely, and the rotating camera is a stationary camera that rotates on the spot.
+                <h2>Object Manipulation</h2>
+                Object Manipulation is key to any production pipeline, for this project I implemented object creation/duplication, selection, transformation, and inspection.
+                <h2>Terrain Manipulation</h2>
+                Most of the terrain manipulation was achieved using ray-triangle intersection tests to determine if and where the terrain was being clicked then manipulating the respective vertexes.
+                Each vertex had a corresponding scale, position, and UVs that could be changed to achieve the manipulation. These values are applied to a heightmap which could also be painted to change the base terrain.
+                <h2>State management</h2>
+                Another key feature of a production pipeline is the ability to undo and redo changes in the event of a mistake or decision change.
+                This was achieved by using two double-ended queues that store the state of the scene graph whenever a change is made.
             </div>
         </section>
 
         <!-- Source -->
         <section id="Source" class="two">
             <div class="container">
-                <h2 class="alt"><strong>Source</strong></h2>
-                <p style="text-align:left;">
-                    The source code can be viewed at my GitHub portfolio page
-                    (<a href="https://github.com/SAnderson-Portfolio/SpaceInvasion-Source" target="_blank" rel="noopener noreferrer">SAnderon-Portfolio</a> <a href="https://github.com/SAnderson-Portfolio/SpaceInvasion-Source" class="fas fa-external-link-alt" style="font-size:16px"></a>)
-                    along with an executable file to play it.
-                </p>
+
+                The source code can be viewed at my GitHub portfolio page
+                (<a href="https://github.com/SAnderson-Portfolio/WFFC" target="_blank" rel="noopener noreferrer">SAnderon-Portfolio</a>
+                <a href="https://github.com/SAnderson-Portfolio/WFFC" class="fas fa-external-link-alt" style="font-size:16px"></a>).
             </div>
         </section>
 
         <!-- Other Projects -->
-        <section id="OtherProjects" class="two">
+        <section id="Other Projects" class="two">
             <div class="container">
 
                 <header>
                     <h2>Other Projects</h2>
                 </header>
 
-                <p>
-                    Quick access section to my other projects.
-                </p>
-
                 <div class="row">
                     <div class="col-4 col-12-mobile">
                         <article class="item">
-                            <a href="dungeon.html" class="image fit"><img src="images/Maps.gif" alt="Gif of different maps" /></a>
+                            <a href="Lochsite.html" class="image fit"><img src="images/Lochsite.gif" alt="Roots being cut in game" /></a>
                             <header>
-                                <h3>Dungeon Generator</h3>
+                                <h3>Lochsite</h3>
                             </header>
                         </article>
+
                         <article class="item">
-                            <a href="Grapple.html" class="image fit"><img src="images/Grapple.gif" alt="Grappling to grapple point." /></a>
+                            <a href="VitaProject.html" class="image fit"><img src="images/VitaMenu.png" alt="Win screen of AR Vita game." /></a>
                             <header>
-                                <h3>Grapple</h3>
+                                <h3>AR Tower Defense</h3>
                             </header>
                         </article>
+
                     </div>
                     <div class="col-4 col-12-mobile">
                         <article class="item">
@@ -122,26 +136,15 @@
                                 <h3>Audio Project</h3>
                             </header>
                         </article>
-                        <article class="item">
-                            <a href="Lochsite.html" class="image fit"><img src="images/Lochsite.gif" alt="Roots being cut in game" /></a>
-                            <header>
-                                <h3>Lochsite</h3>
-                            </header>
-                        </article>
 
                        
+
                     </div>
                     <div class="col-4 col-12-mobile">
                         <article class="item">
-                            <a href="AStar.html" class="image fit"><img src="images/AStar.gif" alt="AStar making a path." /></a>
+                            <a href="Grapple.html" class="image fit"><img src="images/Grapple.gif" alt="Grappling to grapple point." /></a>
                             <header>
-                                <h3>A*</h3>
-                            </header>
-                        </article>
-                        <article class="item">
-                            <a href="AICar.html" class="image fit"><img src="images/AICar.gif" alt="Car turning a corner" /></a>
-                            <header>
-                                <h3>AI Car</h3>
+                                <h3>Grapple</h3>
                             </header>
                         </article>
                     </div>
